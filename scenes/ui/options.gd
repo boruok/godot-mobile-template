@@ -1,11 +1,11 @@
 extends "base.gd"
 
-export var _settings : Resource
-onready var _controller := OptionsController.new()
+@export var _settings : Resource
+@onready var _controller := OptionsController.new()
 
 func _ready() -> void:
-	$BackButton.connect("button_down", self, "_go_back_request")
-	$VBoxContainer/ResetButton.connect("button_down", self, "emit_signal", ["open", "popup_reset"])
+	$BackButton.button_down.connect(_go_back_request)
+	$VBoxContainer/ResetButton.button_down.connect(func(): open.emit("popup_reset"))
 
 	_controller.settings = _settings
 	_controller.music_node = $VBoxContainer/MusicContainer/HSlider

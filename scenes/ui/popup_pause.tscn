@@ -1,106 +1,101 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://cupn0o3kyk6ka"]
 
-[ext_resource path="res://scenes/ui/popup.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/ui/popup_pause.gd" type="Script" id=2]
-[ext_resource path="res://fonts/open_sand.tres" type="DynamicFont" id=3]
-[ext_resource path="res://data/settings.tres" type="Resource" id=4]
+[ext_resource type="PackedScene" uid="uid://cyxnmkbhw8khv" path="res://scenes/ui/popup.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bw1wjkm2vc7tf" path="res://scenes/ui/popup_pause.gd" id="2"]
+[ext_resource type="FontFile" path="res://fonts/open_sand.tres" id="3"]
+[ext_resource type="Resource" path="res://data/settings.tres" id="4"]
 
-[node name="PopupPause" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
-_settings = ExtResource( 4 )
+[node name="PopupPause" instance=ExtResource("1")]
+script = ExtResource("2")
+_settings = ExtResource("4")
+
+[node name="BG" parent="." index="0"]
+anchor_right = 0.0
+anchor_bottom = 0.0
+
+[node name="VBoxContainer" parent="Window" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TitleLabel" parent="Window/VBoxContainer" index="0"]
 text = "UI_PAUSE"
 
 [node name="MusicContainer" type="HBoxContainer" parent="Window/VBoxContainer" index="1"]
-margin_top = 24.0
-margin_right = 240.0
-margin_bottom = 56.0
-rect_min_size = Vector2( 0, 32 )
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Window/VBoxContainer/MusicContainer" index="0"]
-margin_top = 6.0
-margin_right = 80.0
-margin_bottom = 26.0
-rect_min_size = Vector2( 80, 0 )
-custom_fonts/font = ExtResource( 3 )
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
 text = "UI_MUSIC"
 
 [node name="HSlider" type="HSlider" parent="Window/VBoxContainer/MusicContainer" index="1"]
-margin_left = 84.0
-margin_right = 240.0
-margin_bottom = 32.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 rounded = true
 
 [node name="SoundContainer" type="HBoxContainer" parent="Window/VBoxContainer" index="2"]
-margin_top = 60.0
-margin_right = 240.0
-margin_bottom = 92.0
-rect_min_size = Vector2( 0, 32 )
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Window/VBoxContainer/SoundContainer" index="0"]
-margin_top = 6.0
-margin_right = 80.0
-margin_bottom = 26.0
-rect_min_size = Vector2( 80, 0 )
-custom_fonts/font = ExtResource( 3 )
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3")
 text = "UI_SOUND"
 
 [node name="HSlider" type="HSlider" parent="Window/VBoxContainer/SoundContainer" index="1"]
-margin_left = 84.0
-margin_right = 240.0
-margin_bottom = 32.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 rounded = true
 
 [node name="RotationButton" type="CheckButton" parent="Window/VBoxContainer" index="3"]
-margin_top = 96.0
-margin_right = 240.0
-margin_bottom = 136.0
+layout_mode = 2
 focus_mode = 0
-custom_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "UI_ROTATION"
 
 [node name="VibrationButton" type="CheckButton" parent="Window/VBoxContainer" index="4"]
-margin_top = 140.0
-margin_right = 240.0
-margin_bottom = 180.0
+layout_mode = 2
 focus_mode = 0
-custom_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource("3")
 text = "UI_VIBRATION"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Window/VBoxContainer" index="5"]
-margin_top = 184.0
-margin_right = 240.0
-margin_bottom = 210.0
+layout_mode = 2
 
 [node name="LanguageButton" type="Button" parent="Window/VBoxContainer/HBoxContainer" index="0"]
-margin_right = 118.0
-margin_bottom = 26.0
-focus_mode = 0
+layout_mode = 2
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 3 )
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3")
 text = "Language"
 
 [node name="MenuButton" type="Button" parent="Window/VBoxContainer/HBoxContainer" index="1"]
 unique_name_in_owner = true
-margin_left = 122.0
-margin_right = 240.0
-margin_bottom = 26.0
-focus_mode = 0
+layout_mode = 2
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 3 )
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3")
 text = "UI_MENU"
 
 [node name="CloseButton" type="Button" parent="Window/VBoxContainer" index="6"]
 unique_name_in_owner = true
-margin_top = 214.0
-margin_right = 240.0
-margin_bottom = 240.0
-focus_mode = 0
+layout_mode = 2
 size_flags_horizontal = 3
-custom_fonts/font = ExtResource( 3 )
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3")
 text = "UI_CLOSE"

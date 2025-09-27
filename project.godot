@@ -6,59 +6,7 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Node",
-"class": "Manager",
-"language": "GDScript",
-"path": "res://scripts/managers/manager.gd"
-}, {
-"base": "Reference",
-"class": "OptionsController",
-"language": "GDScript",
-"path": "res://scripts/options_controller.gd"
-}, {
-"base": "UserData",
-"class": "Progress",
-"language": "GDScript",
-"path": "res://scripts/userdata/progress.gd"
-}, {
-"base": "Resource",
-"class": "SceneEntry",
-"language": "GDScript",
-"path": "res://scripts/scene_entry.gd"
-}, {
-"base": "Resource",
-"class": "SceneList",
-"language": "GDScript",
-"path": "res://scripts/scene_list.gd"
-}, {
-"base": "Manager",
-"class": "ScreenManager",
-"language": "GDScript",
-"path": "res://scripts/managers/screen_manager.gd"
-}, {
-"base": "UserData",
-"class": "Settings",
-"language": "GDScript",
-"path": "res://scripts/userdata/settings.gd"
-}, {
-"base": "Resource",
-"class": "UserData",
-"language": "GDScript",
-"path": "res://scripts/userdata/userdata.gd"
-} ]
-_global_script_class_icons={
-"Manager": "",
-"OptionsController": "",
-"Progress": "",
-"SceneEntry": "",
-"SceneList": "",
-"ScreenManager": "",
-"Settings": "",
-"UserData": ""
-}
+config_version=5
 
 [application]
 
@@ -66,6 +14,7 @@ config/name="godot-mobile-template"
 run/main_scene="res://main.tscn"
 config/auto_accept_quit=false
 config/quit_on_go_back=false
+config/features=PackedStringArray("4.5")
 
 [autoload]
 
@@ -77,11 +26,11 @@ gdscript/warnings/enable=false
 
 [display]
 
-window/size/width=320
-window/size/height=320
-window/handheld/orientation="portrait"
+window/size/viewport_width=320
+window/size/viewport_height=320
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
+window/handheld/orientation="portrait"
 
 [gui]
 
@@ -91,64 +40,68 @@ common/drop_mouse_on_gui_input_disabled=true
 
 ui_accept={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_select={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_cancel={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_focus_next={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_focus_prev={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_left={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_right={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_up={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_down={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_page_up={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_page_down={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_home={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 ui_end={
 "deadzone": 0.5,
-"events": [  ]
+"events": []
 }
 
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://data/translation.en.translation", "res://data/translation.ru.translation")
+
 [locale]
 
-translations=PoolStringArray( "res://data/translation.en.translation", "res://data/translation.ru.translation" )
+translations=PackedStringArray("res://data/translation.en.translation", "res://data/translation.ru.translation")
 
 [physics]
 
@@ -156,7 +109,8 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 quality/driver/driver_name="GLES2"
 2d/snapping/use_gpu_pixel_snap=true
 vram_compression/import_etc=true
-vram_compression/import_etc2=false

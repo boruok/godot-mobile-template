@@ -1,11 +1,11 @@
 extends "popup.gd"
 
-export var _settings : Resource
-onready var _controller := OptionsController.new()
+@export var _settings : Resource
+@onready var _controller := OptionsController.new()
 
 func _ready() -> void:
-	$"%MenuButton".connect("button_down", self, "emit_signal", ["open", "menu"])
-	$"%CloseButton".connect("button_down", self, "emit_signal", ["back"])
+	%"MenuButton".button_down.connect(func(): open.emit("menu"))
+	%"CloseButton".button_down.connect(func(): back.emit())
 
 	_controller.settings = _settings
 	_controller.music_node = $Window/VBoxContainer/MusicContainer/HSlider

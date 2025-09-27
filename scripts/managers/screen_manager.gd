@@ -1,12 +1,12 @@
 class_name ScreenManager extends Manager
 
-signal scene_changed(from, to)
+signal scene_changed(from: String, to: String)
 signal popup_opened
 signal popup_closed
 
-export var _scene_list : Resource
-export var _transition_path : NodePath
-export var _container_path : NodePath
+@export var _scene_list : Resource
+@export var _transition_path : NodePath
+@export var _container_path : NodePath
 
 var _transition : Node # transition node
 var _container : Node  # scenes container node
@@ -17,8 +17,8 @@ var _blocked := false  # transition block
 
 func set_current(current: Control, id: String) -> void:
 	_current = current
-	_current.connect("open", self, "_on_open")
-	_current.connect("back", self, "_on_back")
+	_current.connect("open", Callable(self, "_on_open"))
+	_current.connect("back", Callable(self, "_on_back"))
 	if !id in _history: _history.append(id)
 
 func _on_open(id: String, data:={}) -> void:
@@ -29,18 +29,18 @@ func _on_open(id: String, data:={}) -> void:
 
 	# check if we switching for popups to main
 	if _scene_list.is_scene_popup(_history.back()) and !_scene_list.is_scene_popup(id):
-		if _transition: yield(_transition.play("in"), "completed")
+		if _transition: await _transition.play("in")
 		for i in range(_history.size()-1, -1, -1):
 			if _history[i] == id:
 				break
-			_history.remove(i)
+			_history.remove_at(i)
 			_container.get_child(_container.get_child_count() - i + 1).queue_free()
 
 	if _scene_list.is_scene_popup(id):
 		_current._on_popup_opened()
-		emit_signal("popup_opened")
+		popup_opened.emit()
 	else:
-		if _transition: yield(_transition.play("in"), "completed")
+		if _transition: await _transition.play("in")
 		if is_instance_valid(_current):
 			_current.queue_free()
 
@@ -50,7 +50,7 @@ func _on_open(id: String, data:={}) -> void:
 	set_current(instance, id)
 
 	if !_scene_list.is_scene_popup(id) and _transition:
-		yield(_transition.play("out"), "completed")
+		await _transition.play("out")
 
 	_blocked = false # unlock activity
 
@@ -60,7 +60,7 @@ func _on_back(data:={}) -> void:
 		_current = _container.get_child(_container.get_child_count()-2)
 		_current._on_popup_closed(data)
 		_history.pop_back()
-		emit_signal("popup_closed")
+		popup_closed.emit()
 	else:
 		_history.pop_back()
 		_on_open(_history.back(), data)

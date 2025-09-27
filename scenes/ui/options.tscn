@@ -1,107 +1,92 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://wqr14y24xwmh"]
 
-[ext_resource path="res://scenes/ui/base.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/ui/options.gd" type="Script" id=2]
-[ext_resource path="res://data/settings.tres" type="Resource" id=3]
-[ext_resource path="res://fonts/open_sand.tres" type="DynamicFont" id=4]
+[ext_resource type="PackedScene" path="res://scenes/ui/base.tscn" id="1"]
+[ext_resource type="Script" uid="uid://bi0ngu3g2mnbt" path="res://scenes/ui/options.gd" id="2"]
+[ext_resource type="Resource" path="res://data/settings.tres" id="3"]
+[ext_resource type="FontFile" path="res://fonts/open_sand.tres" id="4"]
 
-[node name="Options" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
-_settings = ExtResource( 3 )
+[node name="Options" instance=ExtResource("1")]
+layout_mode = 3
+anchors_preset = 15
+script = ExtResource("2")
+_settings = ExtResource("3")
 
 [node name="BackButton" type="Button" parent="." index="0"]
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -36.0
-margin_top = 4.0
-margin_right = -4.0
-margin_bottom = 36.0
-custom_fonts/font = ExtResource( 4 )
+offset_left = -36.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("4")
 text = "B"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -128.0
-margin_top = -138.0
-margin_right = 128.0
-margin_bottom = 138.0
-custom_constants/separation = 16
+offset_left = -128.0
+offset_top = -138.0
+offset_right = 128.0
+offset_bottom = 138.0
+theme_override_constants/separation = 16
 alignment = 1
 
 [node name="MusicContainer" type="HBoxContainer" parent="VBoxContainer" index="0"]
-margin_right = 256.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 0, 32 )
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/MusicContainer" index="0"]
-margin_top = 6.0
-margin_right = 80.0
-margin_bottom = 26.0
-rect_min_size = Vector2( 80, 0 )
-custom_fonts/font = ExtResource( 4 )
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4")
 text = "UI_MUSIC"
 
 [node name="HSlider" type="HSlider" parent="VBoxContainer/MusicContainer" index="1"]
-margin_left = 84.0
-margin_right = 256.0
-margin_bottom = 32.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 rounded = true
 
 [node name="SoundContainer" type="HBoxContainer" parent="VBoxContainer" index="1"]
-margin_top = 48.0
-margin_right = 256.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 0, 32 )
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/SoundContainer" index="0"]
-margin_top = 6.0
-margin_right = 80.0
-margin_bottom = 26.0
-rect_min_size = Vector2( 80, 0 )
-custom_fonts/font = ExtResource( 4 )
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4")
 text = "UI_SOUND"
 
 [node name="HSlider" type="HSlider" parent="VBoxContainer/SoundContainer" index="1"]
-margin_left = 84.0
-margin_right = 256.0
-margin_bottom = 32.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 rounded = true
 
 [node name="RotationButton" type="CheckButton" parent="VBoxContainer" index="2"]
-margin_top = 96.0
-margin_right = 256.0
-margin_bottom = 136.0
+layout_mode = 2
 focus_mode = 0
-custom_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource("4")
 text = "UI_ROTATION"
 
 [node name="VibrationButton" type="CheckButton" parent="VBoxContainer" index="3"]
-margin_top = 152.0
-margin_right = 256.0
-margin_bottom = 192.0
+layout_mode = 2
 focus_mode = 0
-custom_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource("4")
 text = "UI_VIBRATION"
 
 [node name="LanguageButton" type="Button" parent="VBoxContainer" index="4"]
-margin_top = 208.0
-margin_right = 256.0
-margin_bottom = 234.0
+layout_mode = 2
 focus_mode = 0
-custom_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource("4")
 text = "Language"
 
 [node name="ResetButton" type="Button" parent="VBoxContainer" index="5"]
-margin_top = 250.0
-margin_right = 256.0
-margin_bottom = 276.0
+layout_mode = 2
 focus_mode = 0
-custom_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource("4")
 text = "UI_RESET"
