@@ -1,6 +1,6 @@
 extends Node
 
-export(Array, Resource) var _userdata
+@export var _userdata : Array[UserData]
 
 func _enter_tree() -> void:
 	for r in _userdata:

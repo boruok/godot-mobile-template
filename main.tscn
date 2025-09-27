@@ -1,31 +1,37 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://bdvy4sc3m1x77"]
 
-[ext_resource path="res://data/scene_list.tres" type="Resource" id=1]
-[ext_resource path="res://scripts/managers/screen_manager.gd" type="Script" id=2]
-[ext_resource path="res://scenes/ui/logo.tscn" type="PackedScene" id=3]
-[ext_resource path="res://main.gd" type="Script" id=4]
-[ext_resource path="res://data/settings.tres" type="Resource" id=5]
-[ext_resource path="res://data/progress.tres" type="Resource" id=6]
-[ext_resource path="res://scripts/transition.gd" type="Script" id=7]
+[ext_resource type="Resource" uid="uid://benyx4lkl5e4t" path="res://data/scene_list.tres" id="1"]
+[ext_resource type="Script" uid="uid://dare2pxpnsfyr" path="res://scripts/managers/screen_manager.gd" id="2"]
+[ext_resource type="Script" uid="uid://b48w88s63nsjb" path="res://scripts/userdata/userdata.gd" id="2_5vw27"]
+[ext_resource type="PackedScene" path="res://scenes/ui/logo.tscn" id="3"]
+[ext_resource type="Script" uid="uid://sd0w1qf7tq5q" path="res://main.gd" id="4"]
+[ext_resource type="Resource" path="res://data/settings.tres" id="5"]
+[ext_resource type="Resource" path="res://data/progress.tres" id="6"]
+[ext_resource type="Script" uid="uid://dfqp338o3s8m0" path="res://scripts/transition.gd" id="7"]
 
 [node name="Main" type="Node"]
-script = ExtResource( 4 )
-_userdata = [ ExtResource( 6 ), ExtResource( 5 ) ]
+script = ExtResource("4")
+_userdata = Array[ExtResource("2_5vw27")]([ExtResource("6"), ExtResource("5")])
 
 [node name="ScreenManager" type="Node" parent="."]
-script = ExtResource( 2 )
-_scene_list = ExtResource( 1 )
+script = ExtResource("2")
+_scene_list = ExtResource("1")
 _transition_path = NodePath("../Transition")
 _container_path = NodePath("../UI")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Logo" parent="UI" instance=ExtResource( 3 )]
+[node name="Logo" parent="UI" instance=ExtResource("3")]
+layout_mode = 3
+anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Transition" type="CanvasLayer" parent="."]
-script = ExtResource( 7 )
+script = ExtResource("7")
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0 )
+color = Color(0, 0, 0, 0)

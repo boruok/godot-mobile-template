@@ -32,30 +32,30 @@ Example/Template project for games based on Godot Engine.
 
 ```gdscript
 func _ready() -> void:
-	emit_signal("open", "play")
+	open.emit("play")
 ```
 
 you can also pass some data to next UI:
 
 ```gdscript
 func _ready() -> void:
-	emit_signal("open", "play", {"coins": 100, "next_level": "underworld"})
+	open.emit("play", {"coins": 100, "next_level": "underworld"})
 ```
 
 > If the next ui is not a popup, it will be destroyed automatically.
 
 #### Jumping to previous UI or closing popup
 
-```
+```gdscript
 func _ready() -> void:
-	emit_signal("back")
+	back.emit()
 ```
 
 you can also pass some data for previous ui:
 
-```
+```gdscript
 func _ready() -> void:
-	emit_signal("back", {"message": "game over", "score": 100})
+	back.emit({"message": "game over", "score": 100})
 ```
 
 > For example, if history was ["logo", "menu", "play"], emitting back-signal transitions to `menu` and erases `play`.

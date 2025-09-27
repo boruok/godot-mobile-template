@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/ui/base.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/ui/logo.gd" type="Script" id=2]
-[ext_resource path="res://fonts/open_sand.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/open_sand.tres" type="FontFile" id=3]
 
 [node name="Logo" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -10,7 +10,7 @@ script = ExtResource( 2 )
 [node name="Label" type="Label" parent="." index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 3 )
+theme_override_fonts/font = ExtResource( 3 )
 text = "Logo"
 align = 1
 valign = 1

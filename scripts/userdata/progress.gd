@@ -1,6 +1,6 @@
 class_name Progress extends UserData
 
-export var coins := 1000 setget set_coins
+@export var coins := 1000: set = set_coins
 
 func set_coins(v: int) -> void:
 	coins = v

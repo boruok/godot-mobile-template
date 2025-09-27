@@ -1,13 +1,11 @@
 class_name UserData extends Resource
 
 enum { MODE_SAVE = 0, MODE_LOAD = 1, EXPORTED_PROPERTY = 8199 }
-export(String, FILE) var filepath := ""
+@export var filepath := "" # (String, FILE)
 var _defaults := {}
 
 func init() -> void:
-	var file := File.new()
-
-	if file.file_exists(filepath):
+	if FileAccess.file_exists(filepath):
 		_open(MODE_LOAD)
 	else:
 		reset() # apply default values
@@ -21,8 +19,6 @@ func reset() -> void:
 	for k in _defaults: set(k, _defaults[k])
 
 func _open(mode: int) -> void:
-	var file := File.new()
-
 	match mode:
 		MODE_SAVE:
 			# build
@@ -34,11 +30,9 @@ func _open(mode: int) -> void:
 					dict[p.name] = get(p.name)
 
 			# save
-			file.open(filepath, File.WRITE)
+			var file := FileAccess.open(filepath, FileAccess.WRITE)
 			file.store_var(dict)
 		MODE_LOAD:
-			file.open(filepath, File.READ)
+			var file := FileAccess.open(filepath, FileAccess.READ)
 			var dict := file.get_var() as Dictionary
 			for k in dict: set(k, dict[k])
-
-	file.close()
