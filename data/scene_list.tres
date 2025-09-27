@@ -1,0 +1,57 @@
+[gd_resource type="Resource" load_steps=17 format=2]
+
+[ext_resource path="res://scripts/scene_list.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/logo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/scene_entry.gd" type="Script" id=3]
+[ext_resource path="res://scenes/ui/menu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ui/play.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ui/popup_quit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/ui/options.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/ui/popup_reset.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/ui/popup_pause.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+_scene = ExtResource( 2 )
+_popup = false
+_id = "logo"
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+_scene = ExtResource( 4 )
+_popup = false
+_id = "menu"
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 3 )
+_scene = ExtResource( 5 )
+_popup = false
+_id = "play"
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 3 )
+_scene = ExtResource( 7 )
+_popup = false
+_id = "options"
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 3 )
+_scene = ExtResource( 6 )
+_popup = true
+_id = "popup_quit"
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 3 )
+_scene = ExtResource( 8 )
+_popup = true
+_id = "popup_reset"
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 3 )
+_scene = ExtResource( 9 )
+_popup = true
+_id = "popup_pause"
+
+[resource]
+script = ExtResource( 1 )
+_list = [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ]
